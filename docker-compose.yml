@@ -1,0 +1,7 @@
+services:
+  ray:
+    image: rayproject/ray
+    command: ray start --head
+    shm_size: 1g
+    volumes:
+      - /ray/.tmp:/ray
