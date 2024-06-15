@@ -1,7 +1,28 @@
 services:
-  ray:
+  ray-head:
     image: rayproject/ray
-    command: ray start --head
-    shm_size: 1g
+    command: ray start --head --port=6379 --dashboard-host=0.0.0.0 --block
+    ports:
+      - 8265:8265
+      - 10001:10001
+    shm_size: 4g
     volumes:
-      - /ray/.tmp:/ray
+      - ./ray-app/.tmp/head:/ray
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4g
+  ray-worker:
+    depends_on: 
+      - ray-head
+    image: rayproject/ray
+    command: ray start --address=ray-head:6379 --block
+    shm_size: 4g
+    volumes:
+      - /ray/.tmp/worker:/ray
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4g

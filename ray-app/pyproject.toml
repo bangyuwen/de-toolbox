@@ -2,11 +2,12 @@
 name = "ray-app"
 version = "0.1.0"
 description = ""
+package-mode = false
 authors = ["bangyuwen <bangyuwen@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "~3.11"
+python = "3.9.19"
 ray = {extras = ["data", "serve", "train", "tune"], version = "^2.24.0"}
 
 
