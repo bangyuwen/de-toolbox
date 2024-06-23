@@ -26,3 +26,14 @@ services:
         limits:
           cpus: '2'
           memory: 4g
+  dagster:
+    build: 
+      context: dagster-app
+      dockerfile: Dockerfile
+    environment:
+      DAGSTER_HOME: /opt/dagster/dagster_home/
+    ports:
+      - 3000:3000
+    volumes:
+      - ./dagster-app/app:/opt/dagster/app
+      - ./dagster-app/home/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml
