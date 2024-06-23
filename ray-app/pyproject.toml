@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "3.9.19"
 ray = {extras = ["data", "serve", "train", "tune"], version = "^2.24.0"}
+gcsfs = "^2024.6.0"
 
 
 [build-system]

@@ -4,7 +4,7 @@ import time
 
 import ray
 
-ray.init(address='ray://localhost:8265')
+ray.init(address='ray://localhost:10001')
 
 print('''This cluster consists of
     {} nodes in total
