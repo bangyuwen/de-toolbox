@@ -36,4 +36,4 @@ services:
       - 3000:3000
     volumes:
       - ./dagster-app/app:/opt/dagster/app
-      - ./dagster-app/home/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml
+      # - ./dagster-app/home/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml
